@@ -67,22 +67,23 @@ function create_posttype() {
 add_action( 'init', 'create_posttype' );
 
 
-function my_first_taxonomy(){
+function my_first_taxonomy()
+{
 
-$args = array(
+			$args = array(
 
-'labels' => array(
-	'name' => 'Product Category',
-	'singular_name' => 'Category'
-),
+					'labels' => array(
+							'name' => 'Products',
+							'singular_name' => 'Product',
+					),
+
+					'public' => true,
+					'hierarchical' => true,
+
+			);
 
 
-'public' => true,
-'heirarchical' => true,
-);
-
-
-register_taxonomy('products', array('products'), $args);
+			register_taxonomy('products', array('products'), $args);
 
 }
-add_action('init','my_first_taxonomy');
+add_action('init', 'my_first_taxonomy');
