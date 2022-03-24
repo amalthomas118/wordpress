@@ -29,6 +29,7 @@ add_action('wp_enqueue_scripts', 'load_js');
 // Theme options
 add_theme_support('menus');
 add_theme_support('post-thumbnails');
+add_theme_support('widgets');
 // Menus
 
 
@@ -42,6 +43,20 @@ array(
 )
 
 );
+
+
+// Custom Image Sizes
+add_image_size('post-large', 800, 400, true);
+add_image_size('post-small', 300, 200, true);
+
+
+add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
+function wpdocs_theme_setup() {
+    add_image_size( 'category-thumb', 300 ); // 300 pixels wide (and unlimited height)
+    add_image_size( 'homepage-thumb', 220, 180, true ); // (cropped)
+}
+
+
 
 // Our custom post type function
 function create_posttype() {
@@ -63,6 +78,59 @@ function create_posttype() {
         )
     );
 }
+
+
+// Register Sidebars
+function my_sidebars()
+{
+
+
+			register_sidebar(
+
+						array(
+
+								'name' => 'Page Sidebar',
+								'id' => 'page-sidebar',
+								'before_title' => '<h3 class="widget-title">',
+								'after_title' => '</h3>'
+
+						)
+
+			);
+
+
+			register_sidebar(
+
+						array(
+
+								'name' => 'Blog Sidebar',
+								'id' => 'blog-sidebar',
+								'before_title' => '<h3 class="widget-title">',
+								'after_title' => '</h3>'
+
+						)
+
+			);
+
+
+
+}
+add_action('widgets_init','my_sidebars');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Hooking up our function to theme setup
 add_action( 'init', 'create_posttype' );
 
@@ -87,3 +155,7 @@ function my_first_taxonomy()
 
 }
 add_action('init', 'my_first_taxonomy');
+
+
+
+

@@ -57,7 +57,7 @@ footer .container {
 
 footer .footer-bar li a {
     padding: .25rem 1rem;
-    color: #fff;
+    color: rgb(255, 255, 255);
 }
 
 footer .footer-bar li:first-child a {
@@ -66,4 +66,10 @@ footer .footer-bar li:first-child a {
 
 footer .footer-bar li:last-child a {
     padding-right: 0;
+}
+
+.widget {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
