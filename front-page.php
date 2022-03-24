@@ -1,13 +1,36 @@
 <?php get_header();?>
 
-<div class="card mb-3">
+<section class="row">
+
+
+    <div class="col-lg-3">
+
+
+        <?php if( is_active_sidebar('page-sidebar') ):?>
+
+        <?php dynamic_sidebar('page-sidebar');?>
+
+        <?php endif;?>
+
+
+    </div>
+
+    <div class="col-lg-9">
 
 
 
-<div class="card-body">
 
-<!-- To display the posts in homepage -->
-<?php
+
+
+        <div class="card mb-3">
+
+
+
+
+            <div class="card-body">
+
+                <!-- To display the posts in homepage -->
+                <?php
 $query = new WP_Query([
   'post_type' => 'post',
   'posts_per_page' => 4,
@@ -29,18 +52,18 @@ if($query->have_posts()){
 ?>
 
 
-</div>
+            </div>
 
-</div>
-<!-- To display the products in homepage -->
-<div class="card mb-3">
-
-
-
-<div class="card-body">
+        </div>
+        <!-- To display the products in homepage -->
+        <div class="card mb-3">
 
 
-<?php
+
+            <div class="card-body">
+
+
+                <?php
 $query = new WP_Query([
   'post_type' => 'products',
   'posts_per_page' => 2,
@@ -61,10 +84,10 @@ if($query->have_posts()){
 ?>
 
 
-</div>
+            </div>
 
-</div>
+        </div>
 
 
-
-<?php get_footer();?>
+</section>
+        <?php get_footer();?>

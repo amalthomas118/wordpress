@@ -10,6 +10,22 @@ Template Name: Contact Us
 <section class="page-wrap">
 <div class="container">
 
+<!-- adding sidebar to the page -->
+<section class="row">
+
+		
+<div class="col-lg-3">
+    
+
+            <?php if( is_active_sidebar('page-sidebar') ):?>
+        
+                    <?php dynamic_sidebar('page-sidebar');?>
+
+            <?php endif;?>
+
+
+</div>
+<div class="col-lg-9">
     <h1><?php the_title();?></h1>
 
 
